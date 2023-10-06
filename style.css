@@ -68,7 +68,6 @@ body{
     height: 300px;
     margin-top: 150px;
     padding-left: 20px;
-    display: none;
 }
 
 .popup > div{
@@ -112,3 +111,40 @@ button[type = submit]{
     font-size: 20px;
 }
 
+.showcase{
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 20px;
+}
+
+.book{
+    border: 2px #a3c2c2 solid;
+    width: 250px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    padding-top: 20px;
+}
+
+.book > p{
+    padding-top: 14px;
+}
+
+.book > p:first-child{
+    font-weight: 700;
+}
+
+.book > p:nth-child(4), .book > p:nth-child(5){
+    margin-top: 20px;
+    padding: 4px 16px;
+    cursor: pointer;
+    border: 2px #000 solid;
+    font-size: 20px;
+}
