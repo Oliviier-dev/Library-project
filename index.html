@@ -11,25 +11,26 @@
     <div class="container">
         <div class="heading">
             <h2>Library Project</h2>
-            <button>New Book</button>
+            <button class="addbook">New Book</button>
         </div>
         <div class="popup-parent">
             <div class="popup">
                 <div>
                     <h3>New Book</h3>
-                    <button>X</button>
+                    <button class="close">X</button>
                 </div>
                 <form action="" method="get">
-                    <p><input type="text" placeholder="Title"></p>
-                    <p><input type="text" placeholder="Author"></p>
-                    <p><input type="number" placeholder="Pages"></p>
-                    <p><label for="check">Read: <input type="checkbox"></label></p>
-                    <button type="submit">Add</button>
+                    <p><input type="text" id="book_title" placeholder="Title"></p>
+                    <p><input type="text" id="book_author" placeholder="Author"></p>
+                    <p><input type="number" id="book_pages" placeholder="Pages"></p>
+                    <p><label for="check">Read: <input type="checkbox" checked id="book_read"></label></p>
+                    <p id="error">Did you fill all the areas?</p>
+                    <button type="submit" id="submit_button">Add</button>
                 </form>
             </div>
         </div>
         <div class="showcase">
-            <div class="book">
+            <!-- <div class="book">
                 <p>FATD</p>
                 <p>Drake</p>
                 <p>23</p>
@@ -63,16 +64,17 @@
                 <p>13</p>
                 <p>Read</p>
                 <p>Remove</p>
-            </div>
+            </div>  -->
             <div class="book">
                 <p>TFS</p>
                 <p>JID</p>
                 <p>13</p>
                 <p>Read</p>
-                <p>Remove</p>
-            </div>
+                <p class="removebutton">Remove</p>
+            </div> 
         </div>
     </div>
 
+    <script src="app.js"></script>
 </body>
 </html>
