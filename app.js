@@ -16,6 +16,32 @@ function book(title, author, pages, read){
     this.author = author
     this.pages = pages
     this.read = read
+
+    this.render = function(){
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('book');
+
+        for (const bookproperty of [this.title, this.author, this.pages, this.read, 'Remove']){
+            const newpar = document.createElement('p');
+            newpar.textContent = bookproperty;
+            newDiv.appendChild(newpar);
+            //adding the class of removebutton to the remove button/paragraph
+            if(bookproperty == 'Remove'){
+                newpar.classList.add('removebutton');
+            }
+            //here it is the read button where we have values of false and true
+            if(typeof bookproperty == 'boolean'){
+                if(bookproperty){
+                    newpar.textContent = 'Read'
+                } else{
+                    newpar.textContent = 'Not Read'
+                    newpar.style.backgroundColor = 'red';
+                }
+            }
+        }
+
+        showCase.appendChild(newDiv);
+    }
 }
 
 
@@ -40,9 +66,16 @@ submitButton.addEventListener('click', function(event){
         const newBook = new book(bookTitle, bookAuthor, bookPages, bookRead)
 
         myLibrary.push(newBook)
+        newBook.render();
 
+
+
+
+        /*
         //adding the values in this array so as to loop over it when displaying for the use
         bookProperties = [bookTitle, bookAuthor, bookPages, bookRead, 'Remove']
+
+
 
         //creating the new book div(card)
         const newDiv = document.createElement('div');
@@ -68,7 +101,11 @@ submitButton.addEventListener('click', function(event){
             }
         }
         //adding the new created div to the showcase of other books
-        showCase.appendChild(newDiv);
+        showCase.appendChild(newDiv);*/
+        
+
+
+
         //hiding the popup modal
         popup.style.display = 'none';
         //reseting the values
@@ -76,6 +113,7 @@ submitButton.addEventListener('click', function(event){
         document.getElementById('book_author').value = '';
         document.getElementById('book_pages').value = '';
         document.getElementById('book_read').checked;
+        error.style.display = 'none';
     }
     else{
         //if some of the values arent provided show an error message
@@ -84,11 +122,23 @@ submitButton.addEventListener('click', function(event){
 
 });
 
-//removin the book when remove button is clicked
+//removing the book when remove button is clicked
 showCase.addEventListener("click", function(event) {
     if (event.target.classList.contains("removebutton")) {
       const card = event.target.parentElement;
       showCase.removeChild(card);
+    }
+  });
+
+//toogling the read and not read button
+  showCase.addEventListener("click", function(event) {
+    if (event.target.textContent == 'Read') {
+        event.target.style.backgroundColor = 'red';
+        event.target.textContent = 'Not Read'
+    }
+    else if(event.target.textContent == 'Not Read'){
+        event.target.style.backgroundColor = 'green';
+        event.target.textContent = 'Read'
     }
   });
   
